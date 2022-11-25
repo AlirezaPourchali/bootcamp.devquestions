@@ -6,7 +6,7 @@ version: "2"
 
 services:
   web:
-    image: "registry.gitlab.com/qio/standard/redis:latest"
+    image: "registry.gitlab.com/qio/standard/redis:latest" # wont work cause rep is down
     container_name: "redis"
     deploy:
       resources:
@@ -14,8 +14,5 @@ services:
           memory: '30M'
     ports: 
       - 6379:6379
-      #mem_limit: '30M'
+    mem_limit: '30M'
     restart: "on-failure"
-    network_mode: host
-      # volumes:
-      #  - redis-data:/data
