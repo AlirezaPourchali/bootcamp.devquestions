@@ -1,0 +1,21 @@
+version: "2"
+
+# Do not forget that the only available 
+# redis image is accessible with the following url:
+#  registry.gitlab.com/qio/standard/redis:latest
+
+services:
+  web:
+    image: "registry.gitlab.com/qio/standard/redis:latest"
+    container_name: "redis"
+    deploy:
+      resources:
+        limits:
+          memory: '30M'
+    ports: 
+      - 6379:6379
+      #mem_limit: '30M'
+    restart: "on-failure"
+    network_mode: host
+      # volumes:
+      #  - redis-data:/data
