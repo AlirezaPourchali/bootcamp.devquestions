@@ -1,0 +1,17 @@
+version: "3"
+ 
+services:
+  server:
+    container_name: gitea 
+    image: gitea/gitea #"registry.gitlab.com/qio/standard/gitea:1.16.8"
+      #enviroment:
+      #- USER_UID=1000
+      #- USER_UID=1000
+    ports:
+      - 222:22
+      - 3000:3000
+    restart: "on_failure"
+    volumes:
+      - ./data:/data
+
+      
